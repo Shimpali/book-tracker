@@ -1,5 +1,4 @@
-export { Book } from './book';
-export { Genre } from './genre';
-export * from './lib/models.module';
-export { Review } from './review';
-export { Tag } from './tag';
+export { Book } from './lib/book';
+export { Review } from './lib/review';
+export { Tag } from './lib/tag';
+export { User } from './lib/user';

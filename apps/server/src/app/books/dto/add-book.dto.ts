@@ -2,7 +2,7 @@ import { Review, Tag } from '@book-tracker/models';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsNumber, IsString, IsUrl } from 'class-validator';
 
-export class UpdateBookDto {
+export class AddBookDto {
   @IsString()
   @ApiProperty()
   title: string;

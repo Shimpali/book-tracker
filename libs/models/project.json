@@ -4,21 +4,10 @@
   "sourceRoot": "libs/models/src",
   "prefix": "book-tracker",
   "targets": {
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/models"],
-      "options": {
-        "jestConfig": "libs/models/jest.config.js",
-        "passWithNoTests": true
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "libs/models/src/**/*.ts",
-          "libs/models/src/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/models/src/**/*.ts"]
       }
     }
   },
