@@ -1,38 +1,23 @@
-import { Review, Tag } from '@book-tracker/models';
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Schema as mongooseSchema } from 'mongoose';
+import { Schema } from 'mongoose';
 import { ApplicationModules } from '../../../common/enums';
+import { ReviewSchema } from '../../reviews/data/review.schema';
+import { TagSchema } from '../../tags/data/tag.schema';
 
-export const BooksModelName = ApplicationModules.BOOKS;
+export const BookModelName = ApplicationModules.BOOKS;
 
-@Schema()
-export class Book {
-  @Prop()
-  title: string;
-
-  @Prop()
-  author: string;
-
-  @Prop()
-  description: string;
-
-  @Prop()
-  cover: string;
-
-  @Prop()
-  pageCount: number;
-
-  @Prop()
-  link: string;
-
-  @Prop()
-  genre: string;
-
-  @Prop({ type: [{ type: mongooseSchema.Types.ObjectId, ref: 'Review' }] })
-  reviews: Review[];
-
-  @Prop({ type: [{ type: mongooseSchema.Types.ObjectId, ref: 'Tag' }] })
-  tags: Tag[];
-}
-
-export const BookSchema = SchemaFactory.createForClass(Book);
+export const BookSchema = new Schema(
+  {
+    title: String,
+    author: String,
+    cover: String,
+    pageCount: Number,
+    link: String,
+    genre: String,
+    reviews: [{ type: ReviewSchema, ref: 'Reviews' }],
+    tags: [{ type: TagSchema, ref: 'Tags' }],
+  },
+  {
+    collection: BookModelName,
+    timestamps: true,
+  }
+);
