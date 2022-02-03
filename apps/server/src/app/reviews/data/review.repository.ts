@@ -9,32 +9,32 @@ import { ReviewsModelName } from './review.schema';
 @Injectable()
 export class ReviewRepository {
   constructor(
-    @InjectModel(ReviewsModelName) private bookModel: Model<ReviewDocument>
+    @InjectModel(ReviewsModelName) private reviewModel: Model<ReviewDocument>
   ) {}
 
   async addReview(addReviewDto: AddReviewDto): Promise<ReviewDocument> {
-    const newReview = new this.bookModel(addReviewDto);
+    const newReview = new this.reviewModel(addReviewDto);
     return newReview.save();
   }
 
   async getAllReviews(): Promise<ReviewDocument[]> {
-    return this.bookModel.find().exec();
+    return this.reviewModel.find().exec();
   }
 
   async getReviewById(id: string): Promise<ReviewDocument> {
-    return this.bookModel.findById(id).exec();
+    return this.reviewModel.findById(id).exec();
   }
 
   async updateReview(
     id: string,
     updatedReview: UpdateReviewDto
   ): Promise<ReviewDocument> {
-    return this.bookModel.findByIdAndUpdate(id, updatedReview, {
+    return this.reviewModel.findByIdAndUpdate(id, updatedReview, {
       new: true,
     });
   }
 
   async deleteReview(id: string) {
-    return this.bookModel.findByIdAndRemove(id);
+    return this.reviewModel.findByIdAndRemove(id);
   }
 }
