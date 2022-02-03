@@ -1,5 +1,6 @@
 import { Review, Tag } from '@book-tracker/models';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Schema as mongooseSchema } from 'mongoose';
 import { ApplicationModules } from '../../../common/enums';
 
 export const BooksModelName = ApplicationModules.BOOKS;
@@ -27,10 +28,10 @@ export class Book {
   @Prop()
   genre: string;
 
-  @Prop()
+  @Prop({ type: [{ type: mongooseSchema.Types.ObjectId, ref: 'Review' }] })
   reviews: Review[];
 
-  @Prop()
+  @Prop({ type: [{ type: mongooseSchema.Types.ObjectId, ref: 'Tag' }] })
   tags: Tag[];
 }
 
