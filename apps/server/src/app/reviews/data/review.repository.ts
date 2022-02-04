@@ -4,12 +4,13 @@ import { Model } from 'mongoose';
 import { AddReviewDto } from '../dto/add-review.dto';
 import { UpdateReviewDto } from '../dto/update-review.dto';
 import { ReviewDocument } from './review.document';
-import { ReviewModelName } from './review.schema';
+import { ReviewCollectionName } from './review.schema';
 
 @Injectable()
 export class ReviewRepository {
   constructor(
-    @InjectModel(ReviewModelName) private reviewModel: Model<ReviewDocument>
+    @InjectModel(ReviewCollectionName)
+    private reviewModel: Model<ReviewDocument>
   ) {}
 
   async addReview(addReviewDto: AddReviewDto): Promise<ReviewDocument> {

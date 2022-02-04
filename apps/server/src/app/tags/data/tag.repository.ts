@@ -4,12 +4,12 @@ import { Model } from 'mongoose';
 import { AddTagDto } from '../dto/add-tag.dto';
 import { UpdateTagDto } from '../dto/update-tag.dto';
 import { TagDocument } from './tag.document';
-import { TagModelName } from './tag.schema';
+import { TagCollectionName } from './tag.schema';
 
 @Injectable()
 export class TagRepository {
   constructor(
-    @InjectModel(TagModelName) private tagModel: Model<TagDocument>
+    @InjectModel(TagCollectionName) private tagModel: Model<TagDocument>
   ) {}
 
   async addTag(addTagDto: AddTagDto): Promise<TagDocument> {

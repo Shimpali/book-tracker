@@ -1,17 +1,17 @@
 import { Schema } from 'mongoose';
-import { ApplicationModules } from '../../../common/enums';
+import { ApplicationModules, Models } from '../../../common/enums';
 
-export const ReviewModelName = ApplicationModules.REVIEWS;
+export const ReviewCollectionName = ApplicationModules.REVIEWS;
 
 export const ReviewSchema = new Schema(
   {
-    book: { type: Schema.Types.ObjectId, ref: 'Books' },
+    book: { type: Schema.Types.ObjectId, ref: Models.BOOK },
     title: String,
     content: String,
-    user: { type: Schema.Types.ObjectId, ref: 'Users' },
+    user: { type: Schema.Types.ObjectId, ref: Models.USER },
   },
   {
-    collection: ReviewModelName,
+    collection: ReviewCollectionName,
     timestamps: true,
   }
 );

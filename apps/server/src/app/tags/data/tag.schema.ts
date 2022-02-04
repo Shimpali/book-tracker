@@ -1,15 +1,15 @@
 import { Schema } from 'mongoose';
-import { ApplicationModules } from '../../../common/enums';
+import { ApplicationModules, Models } from '../../../common/enums';
 
-export const TagModelName = ApplicationModules.TAGS;
+export const TagCollectionName = ApplicationModules.TAGS;
 
 export const TagSchema = new Schema(
   {
-    book: { type: Schema.Types.ObjectId, ref: 'Books' },
+    book: { type: Schema.Types.ObjectId, ref: Models.BOOK },
     title: String,
   },
   {
-    collection: TagModelName,
+    collection: TagCollectionName,
     timestamps: true,
   }
 );

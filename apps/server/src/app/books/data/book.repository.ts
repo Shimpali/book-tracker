@@ -4,12 +4,12 @@ import { Model } from 'mongoose';
 import { AddBookDto } from '../dto/add-book.dto';
 import { UpdateBookDto } from '../dto/update-book.dto';
 import { BookDocument } from './book.document';
-import { BookModelName } from './book.schema';
+import { BookCollectionName } from './book.schema';
 
 @Injectable()
 export class BookRepository {
   constructor(
-    @InjectModel(BookModelName) private bookModel: Model<BookDocument>
+    @InjectModel(BookCollectionName) private bookModel: Model<BookDocument>
   ) {}
 
   async addBook(addBookDto: AddBookDto): Promise<BookDocument> {
@@ -18,11 +18,11 @@ export class BookRepository {
   }
 
   async getAllBooks(): Promise<BookDocument[]> {
-    return this.bookModel.find().exec();
+    return this.bookModel.find().populate('reviews tags').exec();
   }
 
   async getBookById(id: string): Promise<BookDocument> {
-    return this.bookModel.findById(id).exec();
+    return this.bookModel.findById(id).populate('reviews tags').exec();
   }
 
   async updateBook(
