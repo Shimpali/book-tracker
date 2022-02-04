@@ -4,7 +4,7 @@ import { IsMongoId, IsString } from 'class-validator';
 export class AddTagDto {
   @IsMongoId()
   @ApiProperty()
-  bookId: string;
+  book: string;
 
   @IsString()
   @ApiProperty()

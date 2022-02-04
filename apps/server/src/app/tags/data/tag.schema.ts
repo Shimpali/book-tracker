@@ -5,7 +5,7 @@ export const TagModelName = ApplicationModules.TAGS;
 
 export const TagSchema = new Schema(
   {
-    bookId: { type: Schema.Types.ObjectId, ref: 'Books' },
+    book: { type: Schema.Types.ObjectId, ref: 'Books' },
     title: String,
   },
   {

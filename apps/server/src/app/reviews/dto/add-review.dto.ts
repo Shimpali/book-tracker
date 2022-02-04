@@ -5,7 +5,7 @@ import { IsMongoId, IsString, ValidateNested } from 'class-validator';
 export class AddReviewDto {
   @IsMongoId()
   @ApiProperty()
-  bookId: string;
+  book: string;
 
   @IsString()
   @ApiProperty()

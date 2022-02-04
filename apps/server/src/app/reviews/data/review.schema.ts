@@ -5,7 +5,7 @@ export const ReviewModelName = ApplicationModules.REVIEWS;
 
 export const ReviewSchema = new Schema(
   {
-    bookId: { type: Schema.Types.ObjectId, ref: 'Books' },
+    book: { type: Schema.Types.ObjectId, ref: 'Books' },
     title: String,
     content: String,
     user: { type: Schema.Types.ObjectId, ref: 'Users' },

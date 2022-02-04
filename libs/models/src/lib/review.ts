@@ -1,7 +1,7 @@
 import { User } from './user';
 
 export interface Review {
-  bookId: string;
+  book: string;
   title: string;
   content: string;
   user: User;

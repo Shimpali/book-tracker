@@ -1,4 +1,4 @@
 export interface Tag {
-  bookId: string;
+  book: string;
   title: string;
 }
