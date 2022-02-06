@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@book-tracker/material": ["libs/material/src/index.ts"],
       "@book-tracker/models": ["libs/models/src/index.ts"]
     }
   },

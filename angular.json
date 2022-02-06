@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "material": "libs/material",
     "models": "libs/models",
     "server": "apps/server",
     "web": "apps/web",
