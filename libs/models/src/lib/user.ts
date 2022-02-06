@@ -1,5 +1,7 @@
 export interface User {
   email: string;
   username: string;
-  isActive: boolean;
+  password: string;
+  passwordConfirm: string;
+  isActive?: boolean;
 }

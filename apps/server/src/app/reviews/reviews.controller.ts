@@ -6,15 +6,18 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ApplicationModules } from '../../common/enums';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { ReviewDocument } from './data/review.document';
 import { AddReviewDto } from './dto/add-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { ReviewsService } from './reviews.service';
 
 @ApiTags(ApplicationModules.REVIEWS)
+@UseGuards(JwtAuthGuard)
 @Controller('reviews')
 export class ReviewsController {
   constructor(private readonly booksService: ReviewsService) {}

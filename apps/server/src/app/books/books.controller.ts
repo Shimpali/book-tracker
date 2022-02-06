@@ -6,15 +6,18 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ApplicationModules } from '../../common/enums';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { BooksService } from './books.service';
 import { BookDocument } from './data/book.document';
 import { AddBookDto } from './dto/add-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
 
 @ApiTags(ApplicationModules.BOOKS)
+@UseGuards(JwtAuthGuard)
 @Controller('books')
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
