@@ -1,16 +1,27 @@
 {
   "configurations": [
     {
-      "type": "pwa-chrome",
-      "name": "http://127.0.0.1:3000/01-Fundamentals-Part-1/starter/index.html",
+      "name": "book-tracker",
+      "type": "chrome",
       "request": "launch",
-      "url": "http://127.0.0.1:3000/01-Fundamentals-Part-1/starter/index.html"
+      "preLaunchTask": "npm: serve:web",
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
     },
     {
-      "type": "pwa-chrome",
-      "name": "http://127.0.0.1:3001/Users/shimpalideshpande/Documents/Projects/pwa-bootcamp/first/public/index.html",
+      "name": "ng test",
+      "type": "chrome",
       "request": "launch",
-      "url": "http://127.0.0.1:3001/Users/shimpalideshpande/Documents/Projects/pwa-bootcamp/first/public/index.html"
+      "preLaunchTask": "npm: test",
+      "url": "http://localhost:9876/debug.html"
     },
     {
       "name": "Docker Node.js Launch",

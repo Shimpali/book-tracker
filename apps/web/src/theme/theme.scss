@@ -17,8 +17,8 @@ $book-tracker-typography: mat-typography-config(
 @include mat-core($book-tracker-typography);
 
 // Splitster Primary Theme
-$book-tracker-primary: mat-palette($book-tracker-primary-color, 700);
-$book-tracker-accent: mat-palette($book-tracker-accent-color, 700);
+$book-tracker-primary: mat-palette($book-tracker-primary-color);
+$book-tracker-accent: mat-palette($book-tracker-accent-color);
 $book-tracker-warn: mat-palette($book-tracker-warn-color);
 
 $book-tracker-theme: mat-light-theme(
@@ -32,3 +32,21 @@ $accent: mat-color($book-tracker-accent);
 $warn: mat-color($book-tracker-warn);
 
 @include angular-material-theme($book-tracker-theme);
+
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+// stylelint-disable-next-line selector-max-universal
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+}

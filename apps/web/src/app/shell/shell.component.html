@@ -1,4 +1,4 @@
-<div fxFlex>
+<div fxFlex class="shell-container">
   <mat-sidenav-container fxFill>
     <mat-sidenav
       #sidenav
@@ -26,14 +26,24 @@
         </div>
         <app-language-selector [icon]="true"></app-language-selector>
       </mat-toolbar>
-      <nav>
+      <nav class="nav-container">
         <mat-list>
           <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+          <a
+            mat-list-item
+            routerLink="/home"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
             <span translate>Home</span>
           </a>
           <mat-divider></mat-divider>
-          <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+          <a
+            mat-list-item
+            routerLink="/about"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
             <span translate>About</span>
           </a>
           <mat-divider></mat-divider>
@@ -42,7 +52,12 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar color="primary" class="mat-elevation-z6">
-        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxHide.gt-sm>
+        <button
+          class="menu-button"
+          mat-icon-button
+          (click)="sidenav.toggle()"
+          fxHide.gt-sm
+        >
           <mat-icon>menu</mat-icon>
         </button>
         <span>{{ title }}</span>
