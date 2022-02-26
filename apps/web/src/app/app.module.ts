@@ -1,17 +1,14 @@
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouteReuseStrategy, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { MaterialModule } from '@book-tracker/material';
 import { TranslateModule } from '@ngx-translate/core';
-import {
-  ApiPrefixInterceptor,
-  ErrorHandlerInterceptor,
-  RouteReusableStrategy,
-  SharedModule,
-} from '@shared';
+import { SharedModule } from '@shared';
+import { CoreModule } from './@core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -25,8 +22,12 @@ import { ShellModule } from './shell/shell.module';
     HttpClientModule,
     RouterModule,
     TranslateModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: true,
+    }),
     BrowserAnimationsModule,
     MaterialModule,
+    CoreModule,
     SharedModule,
     ShellModule,
     HomeModule,
@@ -34,22 +35,7 @@ import { ShellModule } from './shell/shell.module';
     AppRoutingModule, // must be imported as the last module as it contains the fallback route
   ],
   declarations: [AppComponent],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiPrefixInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorHandlerInterceptor,
-      multi: true,
-    },
-    {
-      provide: RouteReuseStrategy,
-      useClass: RouteReusableStrategy,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

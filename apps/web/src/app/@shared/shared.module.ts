@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  imports: [FlexLayoutModule, MaterialModule, TranslateModule, CommonModule],
+  imports: [CommonModule, FlexLayoutModule, MaterialModule, TranslateModule],
   declarations: [LoaderComponent],
   exports: [LoaderComponent],
 })

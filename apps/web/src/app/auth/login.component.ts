@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { finalize } from 'rxjs/operators';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Logger } from '@app/@core';
 import { environment } from '@env/environment';
-import { Logger, UntilDestroy, untilDestroyed } from '@shared';
+import { UntilDestroy, untilDestroyed } from '@shared';
+import { finalize } from 'rxjs/operators';
 import { AuthenticationService } from './authentication.service';
 
 const log = new Logger('Login');
@@ -46,7 +46,10 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (credentials) => {
           log.debug(`${credentials.username} successfully logged in`);
-          this.router.navigate([this.route.snapshot.queryParams['redirect'] || '/'], { replaceUrl: true });
+          this.router.navigate(
+            [this.route.snapshot.queryParams['redirect'] || '/'],
+            { replaceUrl: true }
+          );
         },
         (error) => {
           log.debug(`Login error: ${error}`);

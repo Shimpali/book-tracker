@@ -10,10 +10,10 @@ describe('ErrorHandlerInterceptor', () => {
   let http: HttpClient;
   let httpMock: HttpTestingController;
 
-  function createInterceptor() {
+  const createInterceptor = () => {
     errorHandlerInterceptor = new ErrorHandlerInterceptor();
     return errorHandlerInterceptor;
-  }
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -47,7 +47,7 @@ describe('ErrorHandlerInterceptor', () => {
       () => {
         // Assert
         expect((ErrorHandlerInterceptor.prototype as any).errorHandler).toHaveBeenCalled();
-      }
+      },
     );
 
     httpMock.expectOne({}).flush(null, {

@@ -9,6 +9,13 @@ const routes: Routes = [
       loadChildren: () =>
         import('./about/about.module').then((m) => m.AboutModule),
     },
+    {
+      path: 'dashboard',
+      loadChildren: () =>
+        import('./modules/dashboard/dashboard.module').then(
+          (m) => m.DashboardModule
+        ),
+    },
   ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' },

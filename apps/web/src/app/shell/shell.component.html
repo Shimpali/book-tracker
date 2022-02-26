@@ -31,6 +31,15 @@
           <mat-divider></mat-divider>
           <a
             mat-list-item
+            routerLink="/dashboard"
+            routerLinkActive="active"
+            (click)="isMobile && sidenav.close()"
+          >
+            <span translate>Dashboard</span>
+          </a>
+          <mat-divider></mat-divider>
+          <a
+            mat-list-item
             routerLink="/home"
             routerLinkActive="active"
             (click)="isMobile && sidenav.close()"

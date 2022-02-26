@@ -1,0 +1,10 @@
+{
+  "name": "book-tracker",
+  "short_name": "booktracker",
+  "theme_color": "#f2994e",
+  "background_color": "#1f515f",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": []
+}
