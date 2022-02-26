@@ -22,8 +22,8 @@
   mat-sidenav-content {
     background: linear-gradient(
       to left,
-      mat-color($app-primary, 300),
-      mat-color($app-accent, 300)
+      mat-color($app-primary),
+      mat-color($app-accent)
     ) !important;
   }
 
