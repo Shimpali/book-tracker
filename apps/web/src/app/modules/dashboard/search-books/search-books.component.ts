@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-books.component.scss'],
 })
 export class SearchBooksComponent implements OnInit {
+  value: string | null = null;
   constructor() {}
 
   ngOnInit() {}
