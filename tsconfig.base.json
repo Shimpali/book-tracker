@@ -15,12 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@app/*": ["apps/web/src/app/*"],
       "@book-tracker/material": ["libs/material/src/index.ts"],
       "@book-tracker/models": ["libs/models/src/index.ts"],
-      "@app/*": ["apps/web/src/app/*"],
+      "@env/*": ["apps/web/src/environments/*"],
       "@shared": ["apps/web/src/app/@shared"],
-      "@shared/*": ["apps/web/src/app/@shared/*"],
-      "@env/*": ["apps/web/src/environments/*"]
+      "@shared/*": ["apps/web/src/app/@shared/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
