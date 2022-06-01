@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 @import './colors.scss';
 
-// Splitster Typography
+//  Typography
 $book-tracker-typography: mat-typography-config(
   $font-family: 'Helvetica Neue, Helvetica, Arial',
   $headline: mat-typography-level(16px, 16px, 500),
@@ -16,7 +16,7 @@ $book-tracker-typography: mat-typography-config(
 
 @include mat-core($book-tracker-typography);
 
-// Splitster Primary Theme
+//  Primary Theme
 $book-tracker-primary: mat-palette($book-tracker-primary-color);
 $book-tracker-accent: mat-palette($book-tracker-accent-color);
 $book-tracker-warn: mat-palette($book-tracker-warn-color);
